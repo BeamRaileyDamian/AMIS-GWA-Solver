@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AMIS GWA Solver",
+  "version": "1.0",
+  "permissions": [
+    "cookies",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://amis.uplb.edu.ph/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "edge": {
+      "browser_action_next_to_addressbar": true
+    }
+  }
+}
