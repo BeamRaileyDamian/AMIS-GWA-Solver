@@ -7,7 +7,7 @@ document.getElementById("fetchGrades").addEventListener("click", () => {
 // Listen for messages from the background script
 chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "GRADES_DATA") {
-    const gwaOutput = `GWA: ${message.gwa}\nUnits Towards GWA: ${message.totalUnits}`;
+    const gwaOutput = `GWA: ${message.gwa}\nUnits Towards GWA: ${message.totalUnits}\nTotal Grade Points: ${message.gradePoints}`;
     document.getElementById("output").innerText = gwaOutput;
   } else if (message.type === "ERROR") {
     document.getElementById("output").innerText = `Error: ${message.error}`;

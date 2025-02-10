@@ -36,7 +36,7 @@ function calculateGWA(gradesData) {
   }
 
   const gwa = totalUnits > 0 ? (gradePoints / totalUnits).toFixed(4) : 0;
-  return { gwa, totalUnits };
+  return { gwa, totalUnits, gradePoints };
 }
 
 async function fetchStudentGrades() {
@@ -64,7 +64,7 @@ async function fetchStudentGrades() {
     console.log("Grades Data:", gradesData);
 
     // Calculate GWA
-    const { gwa, totalUnits } = calculateGWA(gradesData);
+    const { gwa, totalUnits, gradePoints } = calculateGWA(gradesData);
 
     // Send the GWA and grades back to the popup
     chrome.runtime.sendMessage({
@@ -72,6 +72,7 @@ async function fetchStudentGrades() {
       data: gradesData,
       gwa,
       totalUnits,
+      gradePoints,
     });
   } catch (error) {
     console.error("Error:", error);
